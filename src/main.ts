@@ -14,29 +14,29 @@ const settings = loadSettings();
 app.innerHTML = `
   <main>
     <header>
-      <h1>Vinyl Finder</h1>
-      <p class="subtitle">Your most-listened Last.fm artists, matched against Discogs vinyl listings.</p>
+      <h1>discoggle</h1>
+      <p class="subtitle">... is a last.fm tool that finds Discogs vinyl/CD listings for your favorite songs and albums.</p>
     </header>
 
     <section class="card">
       <h2>Accounts</h2>
       <div class="field">
-        <label for="lastfmUser">Last.fm username</label>
+        <label for="lastfmUser">last.fm username</label>
         <input id="lastfmUser" type="text" autocomplete="off" />
       </div>
       <div class="field">
-        <label for="lastfmKey">Last.fm API key</label>
+        <label for="lastfmKey">last.fm API key</label>
         <input id="lastfmKey" type="text" autocomplete="off" />
       </div>
       <div class="field">
-        <label for="discogsToken">Discogs personal access token</label>
+        <label for="discogsToken">discogs PAT</label>
         <input id="discogsToken" type="text" autocomplete="off" />
       </div>
       <button id="saveSettings" type="button">Save</button>
       <p class="hint">
-        Stored only in this browser's local storage. Get a Last.fm key at
+        stored only in browser local storage. get a last.fm key at
         <a href="https://www.last.fm/api/account/create" target="_blank" rel="noopener">last.fm/api</a>
-        and a Discogs token under Settings &rarr; Developers on
+        and a discogs PAT at
         <a href="https://www.discogs.com/settings/developers" target="_blank" rel="noopener">discogs.com</a>.
       </p>
     </section>
@@ -44,23 +44,23 @@ app.innerHTML = `
     <section class="card">
       <h2>Search</h2>
       <div class="field">
-        <label for="period">Time period</label>
+        <label for="period">last...</label>
         <select id="period">
-          <option value="7day">Last 7 days</option>
-          <option value="1month">Last month</option>
-          <option value="3month">Last 3 months</option>
-          <option value="6month">Last 6 months</option>
-          <option value="12month">Last 12 months</option>
-          <option value="overall">All time</option>
+          <option value="7day">7 days</option>
+          <option value="1month">month</option>
+          <option value="3month">3 months</option>
+          <option value="6month">6 months</option>
+          <option value="12month">12 months</option>
+          <option value="overall">all time</option>
         </select>
       </div>
       <div class="field">
-        <label for="format">Discogs format</label>
+        <label for="format">format</label>
         <select id="format">
-          <option value="Vinyl">Vinyl (any)</option>
-          <option value="7&quot;">7" single</option>
+          <option value="Vinyl">vinyl (any)</option>
+          <option value="7&quot;">single</option>
           <option value="LP">LP</option>
-          <option value="12&quot;">12"</option>
+          <option value="12&quot;">full (12 inch)</option>
         </select>
       </div>
       <button id="run" type="button">Find vinyl</button>
